@@ -1,0 +1,20 @@
+-
+  sitename: Github
+  name: "&emsp;helloway"
+  url: https://github.com/hellowaywewe
+  svg: /assets/svg/github.svg
+  title: github account
+
+-
+  sitename: Email
+  name: "&emsp;simple_hlw@163.com"
+  url: mailto:zoharyips@outlook.com
+  svg: /assets/svg/mailbox.svg
+  title: Send me an email
+
+-
+  sitename: Blog
+  name: "&emsp;&emsp;Wewe's blog"
+  url: https://hellowaywewe.github.io
+  svg: /assets/svg/website.svg
+  title: Wewe's blog

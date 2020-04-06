@@ -1,0 +1,35 @@
+# 格式
+# -  
+#   name: 链接名
+#   url: 链接
+#   type: {MTV|Show|Book|Song}
+
+-
+  name: 超能陆战队
+  url: https://www.iqiyi.com/v_19rrntpmhg.html?vfm=2008_aldbd&fc=828fb30b722f3164&fv=p_02_01#curid=362004600_53a851c918863a30a2db85d4600e741f
+  type: MTV
+
+-
+  name: 阿甘正传
+  url: https://www.iqiyi.com/v_19rrk3u264.html?vfm=2008_aldbd&fc=828fb30b722f3164&fv=p_02_01
+  type: MTV
+
+-
+  name: 家族诞生
+  url: https://www.iqiyi.com/a_19rrgudmhp.html?vfm=2008_aldbd
+  type: Show
+
+-
+  name: Running Man
+  url: https://www.hanfan.cc/tag/runningman/
+  type: Show
+
+-
+  name: 三体
+  url: https://book.douban.com/subject/2567698/
+  type: Book
+  
+-
+  name: 当爱在靠近
+  url: https://kg.qq.com/node/play?s=VasNsiVgStxDGVMr&shareuid=649e9c842d2a3e8e36&topsource=a0_pn201001003_z11_u631187952_l1_t1586162767__&from=message&g_f=
+  type: Song

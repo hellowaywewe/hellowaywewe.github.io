@@ -1,0 +1,18 @@
+# 本数据源用于保存本站算法索引地址
+# 
+# 格式
+# -
+#  title: 算法标题
+#  description: 描述
+#  url: 文章链接
+#  type: 算法类型
+#  image: 演示动图，无演示则不添加
+#  typeinfo: 类型描述，仅第一次出现类型时添加
+
+-
+  title: 插入排序
+  description: 遍历数组，将每个元素逐个插入到已排序的数组中
+  url: /posts/Sort-Algorithms.html#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F
+  type: 排序
+  image: /images/posts/ten_sort_algorithm/insertion_sort.gif
+  typeinfo: 排序指将一组无序的记录序列调整为有序的记录序列。若不需要访问外存，则称为“内部排序”。若参加排序的记录数量很大，无法仅在内存中完成，则称为“外部排序”。

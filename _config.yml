@@ -1,0 +1,111 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your entire site, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# `jekyll serve`. If you change this file, please restart the server process.
+
+# Site Settings
+baseurl:
+# It will redirect your site to this url
+url                 : https://hellowaywewe.github.io
+title               : Wewe's blog
+name                : Wewe's blog
+subtitle            : "Love Studying, Love Life, Love yourself"
+description         : "The personal blog of helloway"
+repository          : hellowaywewe/hellowaywewe.github.io
+keywords            : wewe, helloway, Wewe' Blog
+date_format         : "ordinal"
+timezone            : Asia/Beijing
+encoding            : "utf-8"
+side_bar_repo_limit : 3
+
+author              : Helloway
+github_username     : hellowaywewe
+location            : Shenzhen, China
+email               : simple_hlw@163.com
+
+markdown            : kramdown
+kramdown:
+  input             : GFM
+  syntax_highlighter_opts:
+    disable: true
+# highlighter         : rouge
+paginate            : 12
+lsi                 : false
+quiet               : false
+future              : true
+excerpt_separator   : "\n\n"                # 摘录的分隔符
+permalink           : /posts/:title.html    # 博文发布的 URL，伪静态
+plugins:
+  - jekyll-github-metadata                  # github 元信息
+  # - rouge                                   # Jekyll 的语法高亮在 Jekyll 3.0 以上默认使用的是 Rouge
+  - jekyll-octicons                         # 支持 octions 图标
+  - jekyll-paginate                         # 分页
+  - jekyll-feed                             # 自动生成 SSR 源
+  - jemoji                                  # 解析 emoji
+  - jekyll-sitemap                          # 自动生成 sitemap
+  - jekyll-seo-tag                          # 自动 SEO 头信息生成
+#   - jekyll-html-pipeline                  #
+#   - jekyll-mentions                       # 用于 @github 用户
+collections:
+  design-mode: 
+    output          : true
+    permalink       : /design-mode/:path.html
+
+
+
+# 导航
+navs:
+  -
+    href            : /
+    label           :
+
+  -
+    href            : /categories/
+    label           : 技术
+
+  -
+    href            : /travel/
+    label           : 旅游
+
+  -
+    href            : /recommend/
+    label           : 推荐
+
+  -
+    href            : /life/
+    label           : 生活
+
+  -
+    href            : /about/
+    label           : 关于
+
+subscribe_rss       : /feed.xml
+
+# 评论模块
+# gitalk:
+#   owner             : helloway
+#   repo              : blog-comments
+#   clientID          : 
+#   clientSecret      : 
+
+# 站内搜索
+simple_jekyll_search:
+  fulltext          : false
+
+# leanCloud 访问统计
+leancloud:
+  enable: true
+  app_id: 
+  app_key:
+  data_class_name: visited_times
+  ip_class_name: visiting_ip
+
+# 谷歌分析
+google:
+  analytics_id      : 
+
+# 备案号
+beian               : 粤ICP备
+MIIT                : http://www.beian.miit.gov.cn

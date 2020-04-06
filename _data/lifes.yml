@@ -1,0 +1,22 @@
+# 本数据源用于保存优秀的在线教程
+# 
+# 格式
+# -  
+#   title: 文章标题
+#   url: 链接
+#   type: 文章类型
+
+-
+  title: 戚风蛋糕
+  url: /food/qifeng_cake
+  type: Food
+
+-
+  title: 儿时锅边
+  url: /food/guobian
+  type: Food
+
+-
+  title: 随想
+  url: /mood/day1
+  type: Mood
