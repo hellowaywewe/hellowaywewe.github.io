@@ -35,15 +35,15 @@ permalink: /food/qifengCake
 8. 取出1／3打发好的蛋白加入到蛋黄糊中，用橡皮刮刀轻轻翻拌均匀(从底部往上翻拌，不要划圈搅拌，以免蛋白消泡)
 9. 将搅拌好的蛋黄蛋白糊再倒入剩余2／3的蛋白中，继续翻拌搅匀
 10. 倒入模具(可铺上油纸，好取出蛋糕)，轻震模具排除气泡
-![戚风蛋糕蛋糊](/images/posts/life/food/qifeng_cake_ready.jpg "戚风蛋糕蛋糊")
+![戚风蛋糕蛋糊](/images/posts/life/food/qifeng_cake/qifeng_cake/qifeng_cake_ready.jpg "戚风蛋糕蛋糊")
 
 ### 步骤（烤箱烘焙）
 1. 烤箱开到150摄氏度，预热5分钟
 2. 准备一小碗冷水倒入底部烤盘中，将蛋糊模具放至烤盘中，水浴烘焙
 3. 烤至45分钟时，蛋糕表面上色完成，可在蛋糕表面放置一张锡纸，防止蛋糕表面烤焦
 4. 全程烘焙60到70分钟，即可取出蛋糕。
-![戚风蛋糕烘焙](/images/posts/life/food/qifeng_cake_baking.jpg "戚风蛋糕烘焙")
+![戚风蛋糕烘焙](/images/posts/life/food/qifeng_cake/qifeng_cake/qifeng_cake_baking.jpg "戚风蛋糕烘焙")
 
 最后就让我们来看下戚风蛋糕的成品，非常的成功，甜度适中，非常适合做给家人吃，喜欢的可以动手实践下！
-![戚风蛋糕成品1](/images/posts/life/food/qifeng_cake_completed1.jpg "戚风蛋糕成品1")
-![戚风蛋糕成品2](/images/posts/life/food/qifeng_cake_completed2.jpg "戚风蛋糕成品2")
+![戚风蛋糕成品1](/images/posts/life/food/qifeng_cake/qifeng_cake/qifeng_cake_completed1.jpg "戚风蛋糕成品1")
+![戚风蛋糕成品2](/images/posts/life/food/qifeng_cake/qifeng_cake/qifeng_cake_completed2.jpg "戚风蛋糕成品2")
