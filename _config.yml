@@ -59,7 +59,7 @@ collections:
 navs:
   -
     href            : /
-    label           :
+    label           : 首页
 
   -
     href            : /categories/
