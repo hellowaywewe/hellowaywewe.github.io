@@ -6,7 +6,8 @@ keywords: Basics
 permalink: /Ubuntu/generalBasics
 ---
 
-在使用Ubuntu系统搭建安装环境时，往往会有一些通用的知识点，以此博客作为起点，开始整理，以免因为时间久了被遗忘，减少时间查询成本。
+在使用Ubuntu系统搭建安装环境时，往往会有一些通用的知识点，以此博客作为起点，开始整理，以免因为
+时间久了被遗忘，减少时间查询成本。
 
 **目录**
 
@@ -26,14 +27,16 @@ gateway 192.168.43.1
 # 重启网络服务使之生效
 /etc/init.d/networking restart
 ```
-此时，通过`ping -c 1 baidu.com`会发现通过域名无法ping通，但`ping -c 1 64.31.6.54`通过百度IP是可以ping通的，这说明配置的
-主机静态IP（192.168.43.174）已经可以联网，还需要配置DNS进行域名解析。
+此时，通过`ping -c 1 baidu.com`会发现通过域名无法ping通，但`ping -c 1 64.31.6.54`
+通过百度IP是可以ping通的，这说明配置的主机静态IP（192.168.43.174）已经可以联网，还需要
+配置DNS进行域名解析。
 
 ### 手动为虚拟主机配置DNS服务器
 ```
 # 编辑/ect/network/interfaces文件
 vim /ect/network/interfaces
-# 在文件末尾追加下述配置信息,可设置一个（nameserver）或多个(nameservers),多个DNS地址通过空格分开，然后保存
+# 在文件末尾追加下述配置信息,可设置一个（nameserver）或多个(nameservers),
+多个DNS地址通过空格分开，然后保存
 nameservers 114.114.114.114 114.114.115.115 223.5.5.5 223.6.6.6
 # 重启网络服务使之生效
 /etc/init.d/networking restart
@@ -41,10 +44,11 @@ nameservers 114.114.114.114 114.114.115.115 223.5.5.5 223.6.6.6
 下图为静态IP和DNS服务器配置
 ![静态IP和DNS服务器配置](/images/posts/ubuntu/network.jpg "静态IP和DNS服务器配置")
 注：
-- 由于本机是搭建在virtualbox上的虚拟机，因此DNS与物理主机的DNS保持一致即可,此时，`ping -c 1 baidu.com`通过域名可以ping通。
-- 看了不少文档介绍说可在/etc/resolv.conf文件中追加DNS配置信息，但机器重启后该文件会被覆盖失效，解决方法除上述方案外，还可直接在
-启动脚本/etc/rc.local中将DNS服务器地址写入/etc/resolv.conf：`echo "nameservers x.x.x.x" >/etc/resolv.conf`,这样开机
-可重新配置并启动。
+- 由于本机是搭建在virtualbox上的虚拟机，因此DNS与物理主机的DNS保持一致即可，此时，
+`ping -c 1 baidu.com`通过域名可以ping通。
+- 看了不少文档介绍说可在/etc/resolv.conf文件中追加DNS配置信息，但机器重启后该文件会被覆盖失效，
+解决方法除上述方案外，还可直接在启动脚本/etc/rc.local中将DNS服务器地址写入/etc/resolv.conf：
+`echo "nameservers x.x.x.x" >/etc/resolv.conf`,这样开机可重新配置并启动。
 
 ### 修改虚拟主机名
 ```
@@ -72,8 +76,9 @@ systemctl status firewalld.service
 ```
 
 ### NTP时钟同步
-在同一局域网内搭建集群时，在分布式调度/定时等作业中，常常需要确保几台机器的时间同步，保证数据的实时同步。选择局域网里的一台服务器作为ntp服务器，
-比如在部署K8S集群时，选择k8s-master主节点作为NTP服务器，其他k8s-node节点安装ntpdate客户端，以k8s-master作为基准时钟服务器进行时间同步。
+在同一局域网内搭建集群时，在分布式调度/定时等作业中，常常需要确保几台机器的时间同步，保证数据的实时
+同步。选择局域网里的一台服务器作为ntp服务器，比如在部署K8S集群时，选择k8s-master主节点作为NTP服
+务器，其他k8s-node节点安装ntpdate客户端，以k8s-master作为基准时钟服务器进行时间同步。
 
 ##### date命令查看时间日期及时区信息
 ```
@@ -93,8 +98,8 @@ tzselect
 ```
 ![修改时区1](/images/posts/ubuntu/time_op2.jpg "修改时区1")
 ![修改时区2](/images/posts/ubuntu/time_op3.jpg "修改时区2")
-tzselect命令用于选择时区。要注意的是tzselect只是帮我们把选择的时区显示出来，并不会实际生效，我们需要用上图tzselect生成的提示
-去修改profile文件使得修改时区生效。
+tzselect命令用于选择时区。要注意的是tzselect只是帮我们把选择的时区显示出来，并不会实际生效，
+我们需要用上图tzselect生成的提示去修改profile文件使得修改时区生效。
 ```
 # 编辑/etc/profile文件。
 vim /etc/profile
@@ -109,7 +114,8 @@ source /etc/profile
 
 ##### 修改时区方案2：为虚拟主机设置使用亚洲/上海（+8）时区
 ```
-# 将系统时区文件链接到/usr/share/zoneinfo/Asia/Shanghai文件，或者直接替换系统时区文件，重启生效。
+# 将系统时区文件链接到/usr/share/zoneinfo/Asia/Shanghai文件，
+或者直接替换系统时区文件，重启生效。
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
@@ -133,9 +139,12 @@ ntpdate k8s-master 或者 ntpdate 192.168.43.174
 ![ntpdate客户端安装](/images/posts/ubuntu/ntpdate_install.jpg "ntpdate客户端安装")
 ![ntpdate时间同步1](/images/posts/ubuntu/ntpdate_sync1.png "ntpdate时间同步1")
 ![ntpdate时间同步2](/images/posts/ubuntu/ntpdate_sync2.png "ntpdate时间同步2")
-如果没有自定义安装NTP服务器，可使用已有开放的NTP服务器作为同步（如阿里云NTP服务器，`ntpdate ntp1.aliyun.com`），建议自建NTP服务器。
+
+
+如果没有自定义安装NTP服务器，可使用已有开放的NTP服务器作为同步（如阿里云NTP服务器，
+`ntpdate ntp1.aliyun.com`），建议自建NTP服务器。
 ![ntpdate阿里云时间同步](/images/posts/ubuntu/ntpdate_sync3.png "ntpdate阿里云时间同步")
 
 ### Crontab定时任务
 
-### 持续更新
+### 持续更新。。。
