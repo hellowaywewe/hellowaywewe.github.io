@@ -2,8 +2,8 @@
 layout: post
 title: VirtualBox使用注意事项
 categories: VirtualBox
-keywords: VirtualBox Network
-permalink: /Ubuntu/vbAttention
+keywords: VirtualBox
+permalink: /Ubuntu/vboxAttention
 ---
 
 本文主要介绍在使用VirtualBox安装虚拟机系统的一些注意事项，土豪慎入😂。。。
@@ -22,14 +22,16 @@ permalink: /Ubuntu/vbAttention
 
 网上提到了几种解决方案，尝试后无法解决该问题
 - 调整分辨率，尽管界面文字都调大了，但仍然无法解决显示不全的问题。
-- 安装VirtualBox增强功能包（前提：只有在Ubuntu系统安装成功后才可安装该功能包，否则会报错）。前提与当前问题不匹配
+- 安装VirtualBox增强功能包（前提：只有在Ubuntu系统安装成功后才可安装该功能包，否则会报错），
+前提与当前问题不匹配
 
 尝试了N种方案后，最终的解决方案非常非常之简单，吐了一大口血😂，就是tab键（MacBook Pro上的`->|`键）
 切换到确认按钮点击确认键即可！！！想想就想拿脑袋撞豆腐，傻不隆咚的。
 
-最后来说下在Ubuntu系统成功后，我们来看下如何安装VirtualBox增强功能包，每版本VirtualBox对应有各自版本的增强包，
-此处我使用的当前的最新版VirtualBox 6.1.12：
-1. 在[VirtualBox官网下载页面][1]下载适配Mac OS的最新版VirtualBox 6.1.12（VirtualBox-6.1.12-139181-OSX.dmg），
+最后来说下在Ubuntu系统成功后，我们来看下如何安装VirtualBox增强功能包，每版本VirtualBox对应有各自版本
+的增强包，此处我使用的当前的最新版VirtualBox 6.1.12：
+1. 在[VirtualBox官网下载页面](https://www.virtualbox.org/wiki/Downloads) 下载适配Mac OS的最新版
+VirtualBox 6.1.12（VirtualBox-6.1.12-139181-OSX.dmg），
 并对应下载VirtualBox 6.1.12增强包（Oracle_VM_VirtualBox_Extension_Pack-6.1.12.vbox-extpack.iso）
 2. 在VirtualBox中启动Ubuntu系统，选择"VirtualBox" - "偏好设置..." - "扩展"，选择"添加新包"。
 
@@ -50,8 +52,3 @@ permalink: /Ubuntu/vbAttention
 
 此时，宿主机/Users/wewe/share目录成功挂载到虚拟机/mnt/share目录下，增多其它虚拟机，可共用同一个宿主机共享目录。
 
-
-### VirtualBox为虚拟机配置提供的几种网络类型
-
-Reference links:
-[1] https://www.virtualbox.org/wiki/Downloads

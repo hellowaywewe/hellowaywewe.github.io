@@ -60,8 +60,8 @@ deb-src http://mirrors.163.com/ubuntu/ xenial-updates multiverse
 ### 镜像源文件解析
 Ubuntu的镜像源分为官方源（即上述所说的/etc/apt/sources.list）和ppa(/etc/apt/sources.list.d/)，
 可以将ppa理解为个人软件源，是为Ubuntu用户提供的维护Ubuntu开发者的平台，开发者可以自由参与Ubuntu或相关
-自由软件的开发等工作，并将更新的软件包存放在https://launchpad.net/网站中。我们通常所说的换源，指的是
-更换官方源，下面我们就来看下/etc/apt/sources.list官方源文件内容格式：
+自由软件的开发等工作，并将更新的软件包存放在[launchpad](https://launchpad.net/) 网站中。我们通常
+所说的换源，指的是更换官方源，下面我们就来看下/etc/apt/sources.list官方源文件内容格式：
 ```
 deb http://archive.ubuntu.com/ubuntu/ xenial multiverse
 deb-src http://archive.ubuntu.com/ubuntu/ xenial multiverse

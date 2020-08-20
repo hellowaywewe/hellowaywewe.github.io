@@ -181,7 +181,7 @@ apt-get -y install cron
 service cron start
 ```
 
-##### 开启cron日志
+##### 开启Crontab日志
 Ubuntu默认不开启cron日志（/var/log下没有cron.log文件）
 ```shell
 # 编辑/etc/rsyslog.d/50-default.conf文件
