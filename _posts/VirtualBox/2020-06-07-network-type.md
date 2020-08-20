@@ -18,8 +18,9 @@ VirtualBox为虚拟机配置提供了多种网络类型，我们在使用Virtual
 {:toc}
 
 ### 系统介绍
-Memory | 16G
+System | Specifications
 :-: | :-:
+Memory | 16G
 OS | Mac OS 10.15.5
 Software |  VirtualBox 6.1.12<br />Guest OS: Ubuntu 16.04
 
