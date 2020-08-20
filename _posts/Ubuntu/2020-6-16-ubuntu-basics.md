@@ -146,5 +146,27 @@ ntpdate k8s-master 或者 ntpdate 192.168.43.174
 ![ntpdate阿里云时间同步](/images/posts/ubuntu/ntpdate_sync3.png "ntpdate阿里云时间同步")
 
 ### Crontab定时任务
+Crontab主要用于定期执行程序
+##### 安装并启动Crontab服务
+```shell
+apt-get -y install cron
+service cron start
+```
+
+##### 开启cron日志
+Ubuntu默认不开启cron日志（/var/log下没有cron.log文件）
+```shell
+# 编辑/etc/rsyslog.d/50-default.conf文件
+vim /etc/rsyslog.d/50-default.conf
+# 将cron前面的注释符去掉
+cron.* /var/log/cron.log
+```
+![开启cron日志](/images/posts/ubuntu/crontab_log.png "开启cron日志")
+
+##### Crontab任务解析
+
+##### Crontab任务配置
+
+
 
 ### 持续更新。。。
