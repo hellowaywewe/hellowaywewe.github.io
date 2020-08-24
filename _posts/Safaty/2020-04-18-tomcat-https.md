@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 为Tomcat服务器配置https认证
-categories: Safety
+categories: HTTPS
 keywords: Https Tomcat Certbot Let's Encrypt 
 permalink: /Ubuntu/tomcatHttps
 ---

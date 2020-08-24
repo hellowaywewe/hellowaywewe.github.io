@@ -1,7 +1,7 @@
 ---
 layout: post
 title: GPG加密软件安装
-categories: Ubuntu
+categories: GPG
 keywords: APT GPG
 permalink: /Ubuntu/aptGpg
 ---

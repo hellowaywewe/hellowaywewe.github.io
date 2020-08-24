@@ -1,7 +1,7 @@
 ---
 layout: post
 title: APT镜像软件源更新及格式解析
-categories: Ubuntu
+categories: APT
 keywords: Mirrors APT
 permalink: /Ubuntu/mirrorSource
 ---
