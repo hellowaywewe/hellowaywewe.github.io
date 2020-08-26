@@ -61,8 +61,9 @@ ENTRYPOINT ["data/hello-world"]
 doker login
 
 # 编译Dockerfile，生成镜像
-# 其中，hello_world是镜像名，2.0是版本tag，
-# .是指定镜像构建过程中的上下文环境的目录，docker build 可将这个指定路径下的文件打包上传到Docker引擎
+- 其中，hello_world是镜像名
+- 2.0是版本tag
+- .是指定镜像构建过程中的上下文环境的目录，docker build 可将这个指定路径下的文件打包上传到Docker引擎
 docker build -t yourDockerHubAccount/hello_world:2.0 .
 
 # 将生成的镜像上传到个人的DockerHub
