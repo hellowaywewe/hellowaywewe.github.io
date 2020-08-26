@@ -169,7 +169,7 @@ cat /etc/kube-server-key | tail -2
 
 - 执行命令，加入节点（仅node节点）
 ```shell
-kubeadm join 11.245.196.32:6443 --token obwwzs.teqoezbgxk850uyb \
+kubeadm join 192.168.43.174:6443 --token obwwzs.teqoezbgxk850uyb \
     --discovery-token-ca-cert-hash sha256:aab8882230c446a5e81dd57600f99e034f7e0413f5c927298e578eaa64cf0cc1
 ```
 
@@ -189,11 +189,11 @@ apt-get install -y kubelet=1.15.2-00 kubeadm=1.15.2-00 kubectl=1.15.2-00
 # 升级后集群版本不自动升级
 apt-mark hold kubelet=1.15.2-00 kubeadm=1.15.2-00 kubectl=1.15.2-00
 
-# 在所有节点（包括 master、worker 节点）执行命令
+# 在所有节点（包括 master、node 节点）执行命令
 systemctl daemon-reload 
 systemctl restart kubelet
 ```
-同样，在master节点查看集群状态
+同样，在master节点查看集群状态已经，master节点已经从1.15.0升级到1.15.2版本
 
 ![查看集群升级状态](/images/posts/kubernetes/k8s_upgrade.png "查看集群升级状态")
 
