@@ -28,6 +28,7 @@ kube-node1 | 192.168.43.175 | ubunru 16.04 | 1核4G
 
 ##### hello 应用实现
 - 使用 C++ 编程语言编写简单的hello-world.c文件，并使用命令`gcc hello-world.c -o hello-world`编译生成hello-world二进制可执行文件。
+
 ```shell
 #include <stdio.h>
 #include <unistd.h>
@@ -44,7 +45,9 @@ int main(int argc, char *argv[])
     return 0;
 }
 ```
+
 - 编写Dockerfile，制作容器镜像（将生成的hello-world二进制可执行文件拷贝至容器中执行）
+
 ```shell
 FROM ubuntu:16.04
 
@@ -56,6 +59,7 @@ ENTRYPOINT ["data/hello-world"]
 ```
 
 - 编译镜像，并将其上传到个人的 [DockerHub](https://hub.docker.com/) ，此处默认已申请DockerHub账号
+
 ```shell
 # 登陆DockerHub，输入在DockerHub申请注册的账号密码
 doker login
@@ -71,6 +75,7 @@ docker push yourDockerHubAccount/hello_world:2.0
 ```
 
 - 编写k8s应用部署文件hello.yaml
+
 ```shell
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -90,11 +95,13 @@ spec:
 ```
 
 - 启动应用（仅master节点）
+
 ```shell
 kubectl apply -f hello.yaml
 ```
 
 - 查看应用状态，-o wide表示输出详情
+
 ```shell
 kubectl get pods -o wide
 ```
@@ -107,6 +114,7 @@ kubectl get pods -o wide
 ![calico状态](/images/posts/kubernetes/calico_status.jpg "calico状态")
 
 测试pod的中的容器是否在运行
+
 ```shell
 kubectl exec -it hello-8464b48485-4znrz -- ps -aux | grep hello
 ```
@@ -115,9 +123,11 @@ kubectl exec -it hello-8464b48485-4znrz -- ps -aux | grep hello
 观察上图可见,pod的中的容器在执行hello-world程序，因文件名过长被裁切省略显示。
 
 执行输出的结果和运行状态可查看对应pod的日志
+
 ```shell
 kubectl logs hello-8464b48485-4znrz
 ```
+
 ![pod日志](/images/posts/kubernetes/pod_logs.jpg "pod日志")
 
 ### Dashboard 可视化展示
@@ -136,23 +146,28 @@ Job等资源，还可以对 Deployment 实现弹性扩缩、滚动升级、重�
 ![dashboard镜像](/images/posts/kubernetes/dashboard_image.jpg "dashboard镜像")
 
 然后在master节点执行：
+
 ```shell
 # 此处的kubernetes-dashboard.yaml是经本地修改过的
 kubectl apply -f kubernetes-dashboard.yaml
 ```
+
 若发现，节点镜像拉取很慢导致启动不成功，因为此处只有node1工作节点，默认镜像会在node1节点启动，如果着急
 看效果，可在node1节点手动执行 `docker pull reg.qiniu.com/k8s/kubernetes-dashboard-amd64:v1.8.3`
 命令拉取镜像。
 
 ##### 查看 Dashboard 是否成功启动
+
 ```shell
 kubectl get pod --namespace=kube-system
 kubectl get deployment kubernetes-dashboard --namespace=kube-system 
 kubectl get service kubernetes-dashboard --namespace=kube-system 
 ```
+
 ![dashboard启动确认](/images/posts/kubernetes/dashboard_status.jpg "dashboard启动确认")
 
 ##### 设置外部访问权限
+
 ```shell
 # 允许外部全部用户访问（会占用阻塞终端）
 kubectl proxy --address='0.0.0.0'  --accept-hosts='^*$'
@@ -181,10 +196,12 @@ kubectl apply -f dashboard-admin.yml
 
 ##### 浏览器访问
 在浏览器 WEB 页面访问Dashboard查看集群状态。
+
 ```shell
 # 通过在浏览器输入下述地址，其中yourMasterNodeIP为为kube-master节点的IP：192.168.43.174
 http://yourMasterNodeIP:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/.
 ```
+
 然后直接点击`登录页面`的`跳过`
 
 ![dashboard登陆页面](/images/posts/kubernetes/dashboard_ui_login.jpg "dashboard登陆页面")
@@ -205,6 +222,7 @@ http://yourMasterNodeIP:8001/api/v1/namespaces/kube-system/services/https:kubern
 3. kube-public: 对所有用户可读，由Kubernetes自己管理
       
 ##### kubectl命令补全（仅master节点）
+
 ```shell
 apt-get install bash-completion
 
