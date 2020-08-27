@@ -6,6 +6,7 @@ keywords: kubernetes dashboard
 permalink: /Ubuntu/k8sUse
 ---
 
+
 在上篇 [基于kubeadm工具部署Kubernetes集群](https://we.wewelove.cn/Ubuntu/k8sDeploy) 博客中，我们已经使用 kubeadm 工具成功搭建了 k8s 集群，
 接下来我们就来看看如何在搭建好的集群上部署应用，并使用 Web UI 可视化界面查看集群中应用的运行状态，帮助开发者快速分析集群的健康状态。
 

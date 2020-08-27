@@ -6,6 +6,7 @@ keywords: Kubernetes kubeadm
 permalink: /Ubuntu/k8sDeploy
 ---
 
+
 目前官方提供了3种部署Kubernetes（下面简写k8s）的方式：minikube，kubeadm和二进制包。
 - minikube：用于自动化部署单节点k8s的工具，主要用于测试环境学习使用，不可用于生产环境
 - kubeadm：用于自动化部署多节点k8s集群的工具，可用于生产环境，使用简单，利于初学者入门
