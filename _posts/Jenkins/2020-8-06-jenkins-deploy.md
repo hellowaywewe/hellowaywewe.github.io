@@ -19,7 +19,10 @@ permalink: /Ubuntu/jenkinsDeploy
 {:toc}
 
 ### 基础环境准备
-一台可联网的 `Ubuntu 16.04` 虚拟机，全程使用 `root` 用户部署，在安装Jenkins之前需要先安装好JAVA环境。
+- 一台可联网的 `Ubuntu 16.04` 虚拟机（建议使用独立的公网IP，后续可做域名映射，配置HTTPS认证）
+- 全程使用 `root` 用户部署
+- 在安装Jenkins之前需要先安装好JAVA环境。
+
 前提：此虚拟机是新建无污染的， 安装后需要先做一定更新，安装必要基础软件，属于用户可选操作
 
 ```shell
@@ -116,11 +119,11 @@ service jenkins status
 插件安装完成后，会跳出创建第一个管理员用户页面，可以跳过此步骤，直接点击`使用admin账号继续`按钮，
 每次登陆使用`/var/lib/jenkins/secrets/initialAdminPassword`文件的初始密码作为admin继续，
 此处，我们还是选择填写信息创建新的管理员用户。Jenkins默认使用HTTP协议，数据传输不安全，后续可以
-考虑使用Nginx反向代理为其配置HTTPS认证。
+考虑[使用Nginx反向代理为其配置HTTPS认证](https://we.wewelove.cn/Ubuntu/jenkinsHttps)。
 
 ![Jenkins页面5](/images/posts/jenkins/jenkins_ui5.png "Jenkins页面5")
 
-管理员用户生成后，就进入实例配置页面，可以选择`现在不要`，考虑到后续会与Gibhub联动，都需要用到，
+管理员用户生成后，就进入实例配置页面，可以选择`现在不要`，考虑到后续会与Github联动，都需要用到，
 此处我们选择`保存并完成`：
 
 ![Jenkins页面6](/images/posts/jenkins/jenkins_ui6.png "Jenkins页面6")
