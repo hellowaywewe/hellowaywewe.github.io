@@ -23,7 +23,6 @@ permalink: /Ubuntu/jenkinsHttps
 3. 事先为域名申请好HTTPS安全认证证书
 4. 全程使用 `root` 用户配置
 5. 事先已安装好vim curl wget等基础软件工具。
-- 
 
 针对第2点，可在云服务提供商（如：阿里云，阿里云）平台上的DNS解析服务中添加A类型映射记录（域名到IP的解析）:
 
@@ -122,6 +121,8 @@ server {
     rewrite ^(.*)$ https://yourJenkinsDomain$1 permanent; 
 }
 ```
+
+Nginx配置文件内容如下图：
 
 ![Nginx配置文件](/images/posts/jenkins/nginx_https_conf.png "Nginx配置文件")
 
