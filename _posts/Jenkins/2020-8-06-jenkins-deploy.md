@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 基于Ubuntu 16.04部署jenkins
+title: 基于Ubuntu 16.04部署Jenkins
 categories: Jenkins
 keywords: Jenkins
 permalink: /Ubuntu/jenkinsDeploy
@@ -92,16 +92,16 @@ service jenkins status
 
 ![查看Jenkins状态](/images/posts/jenkins/jenkins_status.png "查看Jenkins状态")
 
-### 浏览器页面操作
+### 浏览器页面访问
 在浏览器地址栏输入 `http://yourIP:8090/` ，其中，yourIP即为搭建该Jenkins所在的虚拟机的IP，效果如下：
 
 ![Jenkins页面1](/images/posts/jenkins/jenkins_ui1.png "Jenkins页面1")
 
-根据上图提示，在虚拟机终端输入`cat /var/lib/jenkins/secrets/initialAdminPassword`命令显示密码
+根据上图提示，在虚拟机终端输入`cat /var/lib/jenkins/secrets/initialAdminPassword`命令显示密码:
 
 ![Jenkins_32位密码](/images/posts/jenkins/jenkins_passwd.png "Jenkins_32位密码")
 
-将输出的32位字符密码拷贝到"管理员密码"字段中
+将输出的32位字符密码拷贝到"管理员密码"字段中:
 
 ![Jenkins页面2](/images/posts/jenkins/jenkins_ui2.png "Jenkins页面2")
 
@@ -109,10 +109,29 @@ service jenkins status
 
 ![Jenkins页面3](/images/posts/jenkins/jenkins_ui3.png "Jenkins页面3")
 
-选择"安装推荐的插件"，效果如下，若网速不佳，需要等待较长时间：
+选择"安装推荐的插件"，若网速不佳，需要等待较长时间, 效果如下：
 
 ![Jenkins页面4](/images/posts/jenkins/jenkins_ui4.png "Jenkins页面4")
 
+插件安装完成后，会跳出创建第一个管理员用户页面，可以跳过此步骤，直接点击`使用admin账号继续`按钮，
+每次登陆使用`/var/lib/jenkins/secrets/initialAdminPassword`文件的初始密码作为admin继续，
+此处，我们还是选择填写信息创建新的管理员用户。Jenkins默认使用HTTP协议，数据传输不安全，后续可以
+考虑使用Nginx反向代理为其配置HTTPS认证。
+
+![Jenkins页面5](/images/posts/jenkins/jenkins_ui5.png "Jenkins页面5")
+
+管理员用户生成后，就进入实例配置页面，可以选择`现在不要`，考虑到后续会与Gibhub联动，都需要用到，
+此处我们选择`保存并完成`：
+
+![Jenkins页面6](/images/posts/jenkins/jenkins_ui6.png "Jenkins页面6")
+
+到此，Jenkins就算正式准备好了。
+
+![Jenkins页面7](/images/posts/jenkins/jenkins_ui7.png "Jenkins页面7")
+
+点击`开始使用Jenkins`按钮即可顺利访问Jenkins仪表板：
+
+![Jenkins页面8](/images/posts/jenkins/jenkins_ui8.png "Jenkins页面8")
 
 注：上述防火墙已经开启8090端口的访问权限，若使用的是云服务提供商（如：阿里云，华为云）的云虚拟机ECS，
 仅仅开启防火墙的8090端口权限是不足的，还需要在云平台上手动添加安全组的入访问规则，否则，在浏览器访问
