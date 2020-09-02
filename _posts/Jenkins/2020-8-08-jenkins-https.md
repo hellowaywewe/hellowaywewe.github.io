@@ -152,5 +152,5 @@ service nginx status
 
 注意：
 - 打开防火墙允许80和443端口访问，打开云服务提供商的安全组入方向规则（80和443），才可正常访问。
-- 给jenkins网站配置了域名，且域名绑定IP所在机器为阿里云国内机器，会发现.cn的网站在国内需要为域名备案，否则配置了80端口很容易被抽查到，这样会导致 `https://yourJenkinsDomai/` 和 `http://yourJenkinsDomai/` 无法访问。
+- 给jenkins网站配置了域名，且域名绑定IP所在机器为阿里云国内机器，会发现.cn的网站在国内需要为域名备案，否则配置了80端口很容易被抽查到，这样会导致 `https://yourJenkinsDomai/` 和 `http://yourJenkinsDomai/` 无法访问。有时间再来整一下备案的事😂
 
