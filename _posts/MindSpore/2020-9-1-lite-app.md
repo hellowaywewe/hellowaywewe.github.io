@@ -103,9 +103,9 @@ Android Studio 是一个Android集成开发工具，用于安卓应用开发和�
 
 ![Android Studio启动界面](/images/posts/mindspore/lite/android_studio_start.png "Android Studio启动界面")
 
-## 正式编译安装MindSpore Lite APP
+## 正式配置 MindSpore Lite 端侧应用
 
-#### 下载并打开MindSpore Lite源码
+#### 下载并打开 MindSpore Lite 源码
 
 由于 MindSpore Lite APP（ 名为：image_classification ） 源码存放于MindSpore代码仓（ mindspore/model_zoo/official/lite/ ）中，因此，我们可以先使用 `git clone`命令下载 mindspore 项目
 
@@ -119,7 +119,7 @@ git clone https://gitee.com/mindspore/mindspore.git
 git clone https://github.com/mindspore-ai/mindspore.git
 ```
 
-#### 在Android Studio里配置 "image_classification" 项目
+#### 在Android Studio里配置 MindSpore lite 端测项目
 
 ###### 打开端侧图像分类 "image_classification" 项目
 
@@ -197,7 +197,7 @@ Gradle 是项目自动化构建工具，类似 Maven，却又不像 Maven 那样
 
 ![Gradle构建3](/images/posts/mindspore/lite/app_sync3.png "Gradle构建3")
 
-###### 编译及运行 MindSpore lite 端侧应用
+## 编译/运行 MindSpore lite 端侧应用
 
 通常情况下，Android 应用的运行有三种形式：
 
