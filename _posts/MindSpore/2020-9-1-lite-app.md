@@ -121,9 +121,9 @@ git clone https://github.com/mindspore-ai/mindspore.git
 
 #### 在Android Studio里配置 MindSpore lite 端测项目
 
-###### 打开端侧图像分类 "image_classification" 项目
+###### 打开端侧图像分类源码项目
 
-在 Android Studio 启动窗口，选择"Open an Existing Project" 打开已有的项目，如下所示：
+在 Android Studio 启动窗口，选择 "Open an Existing Project" 打开已有的项目，如下所示：
 
 ![项目配置1](/images/posts/mindspore/lite/android_studio_op1.png "项目配置1")
 
