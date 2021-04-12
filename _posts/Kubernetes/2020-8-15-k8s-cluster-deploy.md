@@ -109,7 +109,8 @@ apt-mark hold kubelet=1.15.0-00 kubeadm=1.15.0-00 kubectl=1.15.0-00
 ##### k8s集群初始化（仅master节点）
 指令执行输出的信息，会保存到/etc/kube-server-key文件中
 ```shell
-kubeadm init  --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.15.0 --pod-network-cidr=192.168.0.0/16 | tee /etc/kube-server-key
+kubeadm init --image-repository registry.aliyuncs.com/google_containers \
+    --kubernetes-version v1.15.0 --pod-network-cidr=192.168.0.0/16 | tee /etc/kube-server-key
 ```
 部分参数说明：
 1. --image-repository：指定镜像源，为避免拉取镜像超时，此处使用阿里云源，网速快则几分钟后就可以看见成功日志输入
@@ -142,7 +143,7 @@ chown $(id -u):$(id -g) $HOME/.kube/config
 ```shell
 kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
 ```
- `` 
+ 
 - 由于镜像下载速度慢，执行上述命令会一直提示失败重连，解决方法：可使用`docker pull`命令事先拉取calico.yaml的几个镜像
 ```shell
 docker pull calico/cni:v3.8.9
@@ -177,9 +178,8 @@ kubeadm join 192.168.43.174:6443 --token obwwzs.teqoezbgxk850uyb \
 - 在master节点查看集群状态，若网速快，等待几分钟即可。
 ![查看集群启动状态](/images/posts/kubernetes/k8s_pods.png "查看集群启动状态")
 
+### 集群升级
 观察上图，发现master节点版本是v1.15.0，虽然不影响集群的使用，但我们想升级下版本，统一为v1.15.2
-
-##### 集群升级
 ```shell
 # 先移除版本不自动升级的标签
 apt-mark unhold kubelet=1.15.0-00 kubeadm=1.15.0-00 kubectl=1.15.0-00
@@ -194,8 +194,49 @@ apt-mark hold kubelet=1.15.2-00 kubeadm=1.15.2-00 kubectl=1.15.2-00
 systemctl daemon-reload 
 systemctl restart kubelet
 ```
-同样，在master节点查看集群状态已经，master节点已经从1.15.0升级到1.15.2版本
+同样，在master节点查看集群状态，master节点已经从1.15.0升级到1.15.2版本
 
 ![查看集群升级状态](/images/posts/kubernetes/k8s_upgrade.png "查看集群升级状态")
 
+### 更换集群IP
+若遇到需要更换集群IP时，需要重新初始化集群。
 
+1.分别设置master、node节点新的网段ip地址（二者可通信）
+
+具体配置操作可参考[Ubuntu常用基础知识点](http://we.wewelove.cn/Ubuntu/generalBasics) 一文
+中的`手动配置虚拟主机静态IP`和`手动为虚拟主机配置DNS服务器`
+
+2.分别修改master、node节点的hosts映射地址
+
+具体配置操作可参考[Ubuntu常用基础知识点](http://we.wewelove.cn/Ubuntu/generalBasics) 一文
+中的`添加虚拟主机IP与虚拟主机名映射关系`
+
+3.分别删除master，node节点的/etc/kubernetes/,$HOME/.kube和/var/lib/etcd文件夹下的所有文件
+```
+rm -rf /etc/kubernetes/*
+rm -rf ~/.kube/*
+rm -rf /var/lib/etcd/*
+```
+
+4.分别重置master，node节点
+```
+kubeadm reset
+```
+
+5.重新初始化master节点
+```
+kubeadm init --image-repository registry.aliyuncs.com/google_containers \
+    --kubernetes-version v1.15.2 --pod-network-cidr=192.168.0.0/16 | tee /etc/kube-server-key
+```
+
+6.master节点初始化后会得到token，node节点使用该token加入集群
+在master节点查看kubeadm join节点加入集群命令
+```
+cat /etc/kube-server-key | tail -2
+```
+
+在node节点执行kubeadm join命令，加入集群（仅node节点）
+```
+kubeadm join newIP:6443 --token obwwzs.eyqoe47hxk850utr \
+    --discovery-token-ca-cert-hash sha256:3e3r8822s30c446a5e81dd57600f99e454f7e0413f5c947298e578eaa64cf0c77
+```
