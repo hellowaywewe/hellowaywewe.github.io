@@ -3,7 +3,7 @@ layout: post
 title: MindSpore Lite端侧图像分类应用安装部署及运行
 categories: MindSpore
 keywords: MindSpore Lite APP APK
-permalink: /Ubuntu/liteAppBuild
+permalink: /liteAppBuild
 ---
 
 Android Studio是用于安卓开发和调试的工具，在其上开发端测应用代码，然后基于Gradle自动化构建应用并运行。
