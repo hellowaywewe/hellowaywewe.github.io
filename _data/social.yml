@@ -13,8 +13,15 @@
   title: Send me an email
 
 -
-  sitename: Blog
-  name: "&emsp;&emsp;Wewe's blog"
-  url: https://hellowaywewe.github.io
+  sitename: 自建 Blog
+  name: "&emsp;&emsp;Wewe's Self-built Blog"
+  url: https://we.wewelove.cn/
   svg: /assets/svg/website.svg
-  title: Wewe's blog
+  title: Wewe's self-built blog
+
+-
+  sitename: CSDN Blog
+  name: "&emsp;&emsp;Wewe's CSDN Blog"
+  url: https://blog.csdn.net/baidu_25820069
+  svg: /assets/svg/csdn.svg
+  title: Wewe's csdn blog
