@@ -1,11 +1,10 @@
 ---
 layout: page
-title: 归档
-description: 按年份归档
+title: Archives
+description: If you don't walk out, you will think that this is the world.
 comments: false
 share: false
 repositories: false
-categories: true
 canvas: true
 menu: 归档
 permalink: /archives/

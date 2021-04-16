@@ -66,8 +66,8 @@ navs:
     label           : 技术
 
   -
-    href            : /travel/
-    label           : 旅游
+    href            : /archives/
+    label           : 归档
 
   -
     href            : /recommend/
